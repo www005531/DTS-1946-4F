@@ -1,0 +1,173 @@
+sensor:
+  - platform: mqtt
+    name: MQTT_LICZNIK_DTS1946_4P
+    unique_id: MQTT_LICZNIK_DTS1946_4P_V2
+    state_topic: "DTS1946-4P/data"
+    value_template: '{{ value_json.data }}'
+    json_attributes_topic: "DTS1946-4P/data"
+
+  - platform: template
+
+    sensors:
+
+        dts_1946_ua:
+          unique_id: "Ua__V"
+          friendly_name: "Ua__V"
+          unit_of_measurement: "V"
+          value_template: '{{states[''sensor.mqtt_licznik_dts1946_4p_2''].attributes[''Ua__V'']|round(2) }}'
+ 
+        dts_1946_ub:
+          unique_id: "dts_1946_Ub__V"
+          friendly_name: "Ub_V"
+          unit_of_measurement: "V"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Ub__V']|round(2) }}"
+
+        dts_1946_uc:
+          unique_id: "dts_1946_Uc__V"
+          friendly_name: "Uc_V"
+          unit_of_measurement: "V"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Uc__V']|round(2) }}"
+
+        dts_1946_uab:
+          unique_id: "dts_1946_Uab__V"
+          friendly_name: "Uab_V"
+          unit_of_measurement: "V"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Uab__V']|round(2) }}"
+
+        dts_1946_ubc:
+          unique_id: "dts_1946_Ubc__V"
+          friendly_name: "Ubc_V"
+          unit_of_measurement: "V"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Ubc__V']|round(2) }}"
+
+        dts_1946_uca:
+          unique_id: "dts_1946_Uca__V"
+          friendly_name: "Uca_V"
+          unit_of_measurement: "V"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Uca__V']|round(2) }}"
+
+
+        dts_1946_ia:
+          unique_id: "dts_1946_Ia__A"
+          friendly_name: "Ia_A"
+          unit_of_measurement: "A"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Ia__A']|round(3) }}"
+
+        dts_1946_ib:
+          unique_id: "dts_1946_Ib__A"
+          friendly_name: "Ib_A"
+          unit_of_measurement: "A"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Ib__A']|round(3) }}"
+
+        dts_1946_ic:
+          unique_id: "dts_1946_Ic__A"
+          friendly_name: "Ic_A"
+          unit_of_measurement: "A"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Ic__A']|round(3) }}"
+
+        dts_1946_pa:
+          unique_id: "dts_1946_Pa__kW"
+          friendly_name: "Pa_kW"
+          unit_of_measurement: "kW"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Pa__kW']|round(2) }}"
+
+        dts_1946_pb:
+          unique_id: "dts_1946_Pb__kW"
+          friendly_name: "Pb_kW"
+          unit_of_measurement: "kW"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Pb__kW']|round(2) }}"
+
+        dts_1946_pc:
+          unique_id: "dts_1946_Pc__kW"
+          friendly_name: "Pc_kW"
+          unit_of_measurement: "kW"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Pc__kW']|round(2) }}"
+
+        dts_1946_p:
+          unique_id: "dts_1946_P__kW"
+          friendly_name: "P_kW"
+          unit_of_measurement: "kW"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['P__kW']|round(2) }}"
+          
+          
+          
+        dts_1946_qa_kvar:
+          unique_id: "Qa__kvar"
+          friendly_name: "Qa__kvar"
+          unit_of_measurement: "kvar"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Qa__kvar']|round(2) }}"
+
+        dts_1946_qb_kvar:
+          unique_id: "Qb__kvar"
+          friendly_name: "Qb__kvar"
+          unit_of_measurement: "kvar"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Qb__kvar']|round(2) }}"
+
+        dts_1946_qc_kvar:
+          unique_id: "Qc__kvar"
+          friendly_name: "Qc__kvar"
+          unit_of_measurement: "kvar"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Qc__kvar']|round(2) }}"
+
+        dts_1946_q_kvar:
+          unique_id: "Q__kvar"
+          friendly_name: "Q__kvar"
+          unit_of_measurement: "kvar"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Q__kvar']|round(2) }}"
+          
+        dts_1946_sa:
+          unique_id: "Sa__kVA"
+          friendly_name: "Sa__kVA"
+          unit_of_measurement: "kVA"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Sa__kVA']|round(2) }}"
+
+        dts_1946_sb:
+          unique_id: "Sb__kVA"
+          friendly_name: "Sb__kVA"
+          unit_of_measurement: "kVA"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Sb__kVA']|round(2) }}"
+
+        dts_1946_sc:
+          unique_id: "Sc__kVA"
+          friendly_name: "Sc__kVA"
+          unit_of_measurement: "kVA"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Sc__kVA']|round(2) }}"
+
+        dts_1946_s:
+          unique_id: "S__kVA"
+          friendly_name: "S__kVA"
+          unit_of_measurement: "kVA"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['S__kVA']|round(2) }}"
+
+        dts_1946_cosfi_a:
+          unique_id: "cosFia"
+          friendly_name: "cosFia"
+          unit_of_measurement: "-"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['cosFia']|round(2) }}"
+
+        dts_1946_cosfi_b:
+          unique_id: "cosFib"
+          friendly_name: "cosFib"
+          unit_of_measurement: "-"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['cosFib']|round(2) }}"
+
+        dts_1946_cosfi_c:
+          unique_id: "cosFic"
+          friendly_name: "cosFic"
+          unit_of_measurement: "-"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['cosFic']|round(2) }}"
+
+        dts_1946_cosfi:
+          unique_id: "cosFi"
+          friendly_name: "cosFi"
+          unit_of_measurement: "-"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['cosFi']|round(2) }}"
+
+
+        dts_1946_freq:
+          unique_id: "Freq__Hz"
+          friendly_name: "Freq__Hz"
+          unit_of_measurement: "Hz"
+          value_template: "{{states['sensor.mqtt_licznik_dts1946_4p_2'].attributes['Freq__Hz']|round(3) }}"
+
+    
